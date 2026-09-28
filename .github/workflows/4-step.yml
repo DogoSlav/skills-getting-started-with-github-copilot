@@ -45,6 +45,12 @@ jobs:
           issue-number: ${{ env.ISSUE_NUMBER }}
           direction: last
 
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run backend tests
+        run: pytest -q
+
       - name: Update comment - checking work
         uses: GrantBirki/comment@v2.1.1
         with:
